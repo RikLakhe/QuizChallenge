@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>quize challenge</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<script type="text/javascript">
+			var question=['q1','q2','q3','q4','q5','q6'];
+			var correct =['a','b','c','d','e','f'];
+			var correctAnswer =0;
+			var index=0;
+			var answer='';
+			function ask(ind){
+				answer=prompt(question[ind]);
+				if(check(answer,ind)){
+					correctAnswer +=1;
+				}
+				return correctAnswer;
+			}
+			function check(answer,ind){
+				if(answer == correct[ind]){
+					return true;
+				}else{
+					return false;
+					}
+			}
+			function add(){
+				var newQuest=prompt('new question ? ');
+				var newAns=prompt('answer ?');
+				question.push(newQuest);
+				correct.push(newAns);
+			}
+			while(true){
+			var choice = Number(prompt('1. add        2.quiz     3.exit     ? '));
+			if(choice == 1){
+				add();
+			} else if(choice == 2){
+				for(var i = 0 ;i<question.length;i++){
+				ask(i);
+				}
+				console.log('total correct answers are = '+correctAnswer);
+			} else if(choice ==3){
+				break;
+			}
+			
+			
+			}
+		</script>
+	</body>
+</html>
